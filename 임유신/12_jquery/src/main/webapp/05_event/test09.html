@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	canvas {
+		position: relative;
+		top: 50px;
+		left: 50px;
+	}
+</style>
+<script src="../js/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<canvas id="canvas" width="7000" height="4000" 
+	        style="border: 3px solid black"></canvas>
+	        
+	<script>
+		//canvas는 그림을 그릴수 있는 영역(도화지 역활)
+		//canvas에 직접 그림을 그리지 않고 캔버스에 컨텍스트를 가져온 다음
+		//그림을 그린다.
+		var canvas = document.querySelector("#canvas");
+		var context = canvas.getContext("2d");
+		var isPress = false;
+
+		$(canvas).on({
+			mousedown: function(e) {
+				isPress = true;
+
+				//context에 그리기 시작을 알려준다.
+				context.beginPath();
+				// 시작위치 지정
+				context.moveTo(e.offsetX, e.offsetY);
+			},
+			mouseup: function(e) {
+				isPress = false;
+			},
+			mousemove: function(e) {
+				//마우스가 눌린 상태일 경우 그림 그린다..
+				if(isPress){
+					context.lineTo(e.offsetX, e.offsetY);
+
+					//점과 점을 이어서 선을 그려라.
+					context.stroke();
+
+				}
+			}
+			
+		})
+	</script>        
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

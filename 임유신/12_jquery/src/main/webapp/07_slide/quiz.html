@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        button {
+			margin: 5px;
+			font-size: 20px;
+			height: 30px;
+		}
+         #span1{
+             padding: 20px;
+             font-size: 30px;
+         }
+         #span3{
+             font-size: 150px;
+         }
+         
+         #span2{
+             size: 100px;
+         }
+        .container  {
+            top: 10px;
+            overflow:hidden;
+            position:relative;           
+            width:600px; height:400px;
+        }
+        #btn{
+            font-size: 100px;
+        }
+        
+         .area { width:3000px; position:relative; }
+         .area2 > img {width: 100px; height:100px; display: block; }
+         
+         .img { float:left; width:600px; height:400px; }
+    </style>
+    <script src="../js/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <h1>슬라이드 쇼</h1>
+    <div class="container">
+            <span>슬라이드 쇼</span>
+            <select>
+                <option value="1">1초</option>
+                <option value="2">2초</option>
+                <option value="3">3초</option>
+            </select>
+            <span>
+                <button>시작</button>
+                <button>중지</button>
+            </span>
+            <span>크기:
+                  축소
+                 기본크기
+                 확대
+            </span>
+            <span id="span1">
+                <i class="fas fa-angle-double-left"></i>
+                <i class="fas fa-caret-left"></i>
+                <i class="fas fa-caret-right"></i>
+                <i class="fas fa-angle-double-right"></i>
+            </span>
+            
+        <div class="area">
+            <img src="Desert.jpg" class="img"/>
+            <img src="Hydrangeas.jpg" class="img"/>
+            <img src="pic1.jpg" class="img"/>
+            <img src="pic2.jpg" class="img"/>
+            <img src="pic4.jpg" class="img"/>
+            <img src="pic1.jpg" class="img"/>
+            <img src="pic2.jpg" class="img"/>
+            <img src="pic4.jpg" class="img"/>
+        </div>
+    </div>
+   
+    
+    <div>    
+        <span id="span3">
+            <button type="image" id="btn" class="fas fa-angle-left">이전</button>
+            <div class="area2">
+                <img src="Desert.jpg" class="img" />
+                <img src="Hydrangeas.jpg" class="img" />
+                <img src="pic1.jpg" class="img"/>
+                <img src="pic2.jpg" class="img" />
+                <img src="pic4.jpg" class="img" />
+                <img src="pic1.jpg" class="img" />
+                <img src="pic2.jpg" class="img" />
+                <img src="pic4.jpg" class="img" />
+            </div>
+            <button id="btn" type="image" class="fas fa-angle-right">다음</button>
+        </span>
+    </div>
+    
+    <script>
+         var index = 0;
+        function moveSlider(){
+            var move = -(index * 600);
+            $(".area").animate({left: move}, "slow");
+        }
+        $("button:eq(0)").click(function () {
+            
+        });
+        $("button:eq(2)").click(function () {
+            if(index == 0) alert("처음 사진입니다.");
+            else index--;
+            moveSlider();
+            
+        });
+        $("button:eq(3)").click(function () {
+            if(index == 5) alert("마지막 사진입니다.");
+            else index++;
+            moveSlider();
+            
+        });
+    </script>
+
+
+</body>
+</html>

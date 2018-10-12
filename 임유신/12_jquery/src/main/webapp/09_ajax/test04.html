@@ -1,0 +1,53 @@
+<!-- 
+	전역  Ajax 함수
+	ajaxStart
+	ajaxStop
+	
+	ajaxSend
+	ajaxSuccess
+	ajaxComplete
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<button>호출</button>
+	<div id="result1"></div>
+	<div id="result2"></div>
+	<script>
+		$("button").click(function () {
+			$(document).ajaxStart(function () {
+				console.log("ajaxStart");
+			}).ajaxStop(function () {
+				console.log("ajaxStop");
+			});
+			$.ajax({
+				url: "/12_jquery/ajax/exam01",
+				data: "msg=임유신",
+				success: function (result) {
+					console.log("exam01 ajax 처리 완료");
+					$("#result1").html(result);
+				}
+			});
+			$.ajax({
+				url: "/12_jquery/ajax/exam02",
+				data: "msg=입니다",
+				success: function (result) {
+					console.log("exam02 ajax 처리 완료");
+					$("#result2").html(result.msg);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

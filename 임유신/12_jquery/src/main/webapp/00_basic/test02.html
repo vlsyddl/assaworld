@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        // prototype.js 와 jquery.js 둘다 $변수를 활용하기 때문에 충돌이 발생한다
+        // 이걸 해결하는 방법은?
+        //$.noConflict(); 이걸 쓰면 $는 제이쿼리가 아니다
+        $.noConflict();
+        
+        console.log($); //prototype
+
+        console.log(jQuery);
+        
+        /*
+        $("div")   //prototype 사용
+        jQuery("div") // jquery 사용
+        */
+        
+        //jQuery를 단축하고싶다면..
+        //1번 방식
+        /*
+        var j = jQuery;
+        j("div");
+        */
+        
+        //2번째 방식
+        jQuery(document).ready(function ($) {
+            console.log($);   //jQuery를 $로 바꿈
+            //$로 기존과 동일하게 jQuery를 사용한다.
+        });
+
+        //즉시실행함수를 사용
+        (function ($) {
+            //$를 jQuery 객체를 받아서 설정한 다음 실행하기
+            console.log($);
+        })(jQuery);
+
+    </script>
+</head>
+
+<body>
+    <div>
+
+
+    </div>
+</body>
+
+</html>

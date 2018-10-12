@@ -1,0 +1,45 @@
+<!-- 
+	$.ajax(url, options);
+	$.ajax(options);
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<button>호출</button>
+	<div id="result"></div>
+	<script>
+		$("button").click(function () {
+			var $call1 = $.ajax("/12_jquery/ajax/exam01");
+			var $call2 = $.ajax({
+				url: "/12_jquery/ajax/exam02",
+				data: {msg: "다중 호출 테스트"}
+			});
+			
+			
+			$.when($call1, $call2).done(function (result1, result2) {
+				console.log("위의 ajax 호출 결과가 다 온다음 처리하자.");
+				console.dir(result1)
+				console.dir(result2)
+								
+			});
+		});
+		
+		/*
+		
+		*/
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

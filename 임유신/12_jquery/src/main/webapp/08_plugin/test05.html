@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- https://notifyjs.jpillora.com/ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="notify.js"></script>
+</head>
+<body>
+    <button>확인</button>
+    <script>
+        $("button").click(function() {
+            
+            $.notify("Hello World");
+            $.notify("Hello World");
+            $.notify("Access granted", "success");Info
+            $.notify("Do not press this button", "info");Warning
+            $.notify("Warning: Self-destruct in 3.. 2..", "warn");Error
+            $.notify("BOOM!", "error");
+            
+           
+           $(".pos-demo").notify(
+                "I'm to the right of this box", 
+                    { position:"right" }
+               );
+                $.notify("Warning: Self-destruct in 3.. 2..", "warn", {position: "bottom right"});
+            });
+    </script>
+</body>
+</html>
